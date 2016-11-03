@@ -1,0 +1,26 @@
+var appProduct = angular.module('assignment', []);
+
+appProduct.service('productlist', ['$http', function($http) {
+    return {
+        getProducts: function() {
+            return $http.get('js/data.json')
+                .then(function(response) {
+                    return response.data;
+                }, function() {
+                    return "Error while fetching data";
+                });
+        }
+    }
+}]);
+
+
+
+appProduct.controller('productGrid', ['$scope', '$http', '$timeout', 'productlist', function($scope, $http, $timeout, productlist) {
+    productlist.getProducts().then(function(data) {
+        $timeout(function() {
+            $scope.items = data;
+        });
+    }, function(data) {
+        console.log(data);
+    });
+}]);
