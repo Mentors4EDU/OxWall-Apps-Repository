@@ -1,0 +1,18 @@
+﻿Intro to Cad (Notes) 2/1/2017
+
+
+Parametric design involves algorithmic thinking which would enable the expression of parameters and rules that would encode and clarify the relationship between design intent and design response
+
+
+Learn to utilize:
+1. Create Curvature
+2. Pad Definition Box
+3. 3 Point Connecting
+4. Using cross-section
+5. Defining dimensions
+6. Utilizing the axis w/ profile
+7. Draw a sketch using profile
+8. Horizontal and Vertical dimensions
+9. Parallel lines in Parametric designs
+10. Try avoiding any potential unwanted constraints
+11. Know when to avoid unwanted constraints using alignment
