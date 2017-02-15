@@ -1,0 +1,19 @@
+﻿Intro to Catia Notes: 2/15/2017
+
+
+Remember to go over the Boolean function and the remove functions in Catia; Creating a part and using remove to create a casting/molding; Know about creating special fillets
+
+
+Include inclined surface in a single part, to end up creating the special fillet; (cutting on incline surface); can’t just follow the sketch process;
+
+
+Know how to use intersect for a final shape for product design, especially when working with three dimensional shapes that started from a 2D sketch; (in some cases, 2D is very hard to design sketches)
+
+
+Know how to create parts using Boolean Operations; most aluminum components in the auto industry are made using the molding process; utilizing the plane for product design
+
+
+Try kicking in the right angle in order to utilize the constraints; Activating two constraints can be a bit tricky; Try utilizing the constraint dialog; Utilizing profile for complete part design; Using reverse directions in Catia
+
+
+Project 3D elements function; Adding correct logic & operations; Using Catia’s Rib Function; Creating profile & using faces to draft
