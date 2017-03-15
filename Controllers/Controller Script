@@ -21,4 +21,4 @@ appProduct.controller('productGrid', function($scope, $http, productlist){
   $scope.item = productlist.items;
   console.log(productlist.items)
 
-})
+}) 
