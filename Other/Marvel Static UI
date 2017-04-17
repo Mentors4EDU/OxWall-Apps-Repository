@@ -1,0 +1,138 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="twitter:card" content="player">
+<meta name="twitter:site" content="@marvelapp">
+ 
+<meta name="twitter:title" content="Resume Visualizer (App Concept)">
+<meta name="twitter:description" content="Marvel Prototype for Resume Visualizer (App Concept)">
+ 
+<meta name="twitter:player" content="https://marvelapp.com/gcbeibg?emb=1">
+<meta name="twitter:player:width" content="390">
+<meta name="twitter:player:height" content="779">
+<meta name="twitter:player:stream" content="https://marvelapp.com/gcbeibg?emb=1">
+<meta name="twitter:player:stream:content_type" content="image/jpeg">
+<meta property="og:title" content="Resume Visualizer (App Concept)">
+<meta property="og:image" content="https://marvelapp-live.storage.googleapis.com/serve/2017/4/997c83a022284b0e97b1b08f0488f17b.png">
+<meta property="og:site_name" content="Marvel Prototyping">
+<meta property="og:description" content="Marvel Prototype for Resume Visualizer (App Concept)">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.0/es6-promise.auto.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+<link type="text/css" href="/static/css/prototype.256bd1b59f85ec3c5dd0.css" rel="stylesheet"/>
+<script type="text/javascript">
+(function () {
+    // Define if this is offline
+    var offline = false;
+
+    var trackerReady;
+
+    
+        function initGoogleAnalytics() {
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-38711157-1', 'auto');
+          ga('send', 'pageview', "prototype-view");
+        }
+
+        function initIntercom() {
+          var w = window;
+          var ic = w.Intercom;
+          if (typeof ic === "function") {
+              ic('reattach_activator');
+              ic('update', intercomSettings);
+          } else {
+              var d = document;
+              var i = function () {
+                  i.c(arguments)
+              };
+              i.q = [];
+              i.c = function (args) {
+                  i.q.push(args)
+              };
+              w.Intercom = i;
+              function l() {
+                  var s = d.createElement('script');
+                  s.type = 'text/javascript';
+                  s.async = true;
+                  s.src = 'https://widget.intercom.io/widget/{app_id}';
+                  var x = d.getElementsByTagName('script')[0];
+                  x.parentNode.insertBefore(s, x);
+              }
+
+              if (w.attachEvent) {
+                  w.attachEvent('onload', l);
+              } else {
+                  w.addEventListener('load', l, false);
+              }
+          }
+        }
+
+        function initTracker() {
+          return fetch('/api/v1/integration/snippet/?project_id=1890341')
+            .then(function(response) {
+              if (!response.ok) {
+                return Promise.reject(response);
+              }
+              return response.json();
+            })
+            .then(function(response) {
+              var gaSnippet = response.snippets.filter(function(snippet) {
+                return snippet.provider === 'ga';
+              })[0];
+              if (!gaSnippet) {
+                return Promise.reject(response);
+              }
+              ga('create', gaSnippet.tracker_id, 'auto', 'marvelUserGATracker');
+            })
+            .catch(function(error){
+              // catching it so it does not create noise in the console
+            });
+        }
+
+        initGoogleAnalytics();
+        initIntercom();
+        trackerReady = initTracker();
+    
+
+    window.MARVELAPP = {
+      offline: offline,
+      randomNumber: 4,
+      projectId: "gcbeibg",
+      
+        projectConfig: {"id":1890341,"name":"Resume Visualizer (App Concept)","description":"None","vanity_url":"https://marvelapp.com/gcbeibg","human_url":null,"state":1,"cursor":"","resource_uri":"/project/1890341/","team_uri":null,"isprivate":0,"date_modified":"2017-04-17 18:52:12","date_created":"2017-04-17 18:31:47","is_syncing":0,"sync_started":null,"is_deleted":false,"sync_ended":null,"num_images":2,"images":{"1":{"id":27109331,"name":"Image 1.png","description":null,"width":1080,"height":1920,"is_app_icon":false,"url":"https://marvelapp-live.storage.googleapis.com/serve/2017/4/997c83a022284b0e97b1b08f0488f17b.png","version":6,"size":66182,"status":5,"directory":null,"thumbnail":"https://res.cloudinary.com/marvel-content/image/fetch/s--uSQ_2ZIs--/f_auto,fl_lossy,q_100,t_thumbnail_fill_320_568/https://marvelapp-live.storage.googleapis.com/serve/2017/4/997c83a022284b0e97b1b08f0488f17b.png","preview_thumbnail":"https://res.cloudinary.com/marvel-content/image/fetch/s--8f_ThI7r--/f_auto,fl_lossy,q_100,t_width_320/https://marvelapp-live.storage.googleapis.com/serve/2017/4/997c83a022284b0e97b1b08f0488f17b.png","preview_thumbnail_640":null,"hotspots":[],"content_type":"image/png","layer_parent":null,"top_pixel_colour":"38, 52, 69, 1.0","bottom_pixel_colour":"30, 45, 62, 1.0","status_pixel_colour":"38, 52, 69, 1.0","bright_pixel_colour":null,"hotspots_delta":"f2180b72786cfb78137141eb2487e09c","uuid":"e0dd620b-0bb0-4dd5-821a-b6e470e00419","layer_sync_uri":"","is_desktop":false,"revision":null,"source_platform":"7","seq":1,"comment_count":0,"source_platform_human":"New Canvas","es_canvas_id":"6259805760339841024","external_id":null}},"project_image":"https://res.cloudinary.com/marvel-content/image/fetch/s--uSQ_2ZIs--/f_auto,fl_lossy,q_100,t_thumbnail_fill_320_568/https://marvelapp-live.storage.googleapis.com/serve/2017/4/997c83a022284b0e97b1b08f0488f17b.png","project_base_image":"https://marvelapp-live.storage.googleapis.com/serve/2017/4/997c83a022284b0e97b1b08f0488f17b.png","total_size":1071457,"app_icon":{"id":27109895,"name":"","description":null,"width":400,"height":400,"is_app_icon":true,"url":"https://res.cloudinary.com/marvel-content/image/fetch/s--qgfGPith--/f_auto,fl_lossy,q_100,t_app_icon_180/https://marvelapp-live.storage.googleapis.com/serve/2017/4/17e996b88e2a4bb4984ddf422ed5a95e.jpg","version":3,"size":null,"status":5,"directory":null,"thumbnail":"https://res.cloudinary.com/marvel-content/image/fetch/s--cXMsLRcr--/f_auto,fl_lossy,q_100,t_app_icon_120/https://marvelapp-live.storage.googleapis.com/serve/2017/4/17e996b88e2a4bb4984ddf422ed5a95e.jpg","preview_thumbnail":"https://res.cloudinary.com/marvel-content/image/fetch/s--cXMsLRcr--/f_auto,fl_lossy,q_100,t_app_icon_120/https://marvelapp-live.storage.googleapis.com/serve/2017/4/17e996b88e2a4bb4984ddf422ed5a95e.jpg","preview_thumbnail_640":null,"hotspots":[],"content_type":"image/jpeg","layer_parent":null,"top_pixel_colour":"232, 231, 229, 1.0","bottom_pixel_colour":"167, 227, 217, 1.0","status_pixel_colour":null,"bright_pixel_colour":null,"hotspots_delta":"","uuid":"00a26c86-4603-48bc-ab0c-32e85bc0c1b9","layer_sync_uri":"","is_desktop":true,"revision":null,"source_platform":"4","seq":null,"comment_count":0,"source_platform_human":"Desktop","es_canvas_id":null,"external_id":null},"properties":[{"id":38551517,"name":"ui-prj-show-hints","value":"0","description":"Show hints on prototype","uuid":"afb2ca7f-d93b-4bd1-b9eb-8fc10cb7d606","read_only":false},{"id":38551502,"name":"ui-prj-status-bar","value":"0","description":"Set status bar background colour","uuid":"24e68dfe-7e3e-4b86-8480-050f7cc4d3c1","read_only":false},{"id":38551503,"name":"prj-lookback-ever-enabled","value":"0","description":"Lookback ever been enabled for this project","uuid":"54c0d403-a892-4393-a46f-b37fc9fd7687","read_only":true},{"id":38551501,"name":"prj-comments-ever-enabled","value":"1","description":"Comments have ever been enabled for this project","uuid":"1e64602e-d092-4260-bb24-7a0b092ad233","read_only":true},{"id":38551514,"name":"prj-lookback-enabled","value":"0","description":"Enable Lookback for this project","uuid":"1eacae63-f328-4cc4-87af-6a3a8d4e329e","read_only":false},{"id":38551505,"name":"ui-prj-responsive","value":"0","description":"Set images as responsive","uuid":"98bebf49-0861-483f-ad59-24d712669805","read_only":false},{"id":38551506,"name":"ui-prj-thumbnail-width","value":"0","description":"Set thumbnail width for project view","uuid":"269b3922-41e7-4cc1-b3e4-1da677bfce7a","read_only":false},{"id":38551510,"name":"ui-prj-retina-scale","value":"0","description":"Scale images to half their original width for retina images","uuid":"bd3f2294-522e-4bd6-9270-c5f029306d56","read_only":false},{"id":38551509,"name":"ui-prj-center-image","value":"0","description":"Center image instead of aligning left","uuid":"750cbe96-e2b2-4c25-a7e0-713e6e7ad65f","read_only":false},{"id":38551504,"name":"ui-prj-background-hex","value":"FFFFFF","description":"Set background colour for prototype preview","uuid":"ab419f8a-fc55-410c-a646-179fe06ba3b4","read_only":false},{"id":38551499,"name":"ui-prj-frame","value":"nexus5-frame","description":"Set phone frame","uuid":"6c39b2fc-c2e7-4916-a551-dafb7a8a5a91","read_only":false},{"id":38551511,"name":"ui-prj-prototype-background-hex","value":"FFFFFF","description":"Set background for prototype background","uuid":"78c197ea-1f2e-4794-872f-b4ee13ba59a6","read_only":false},{"id":38551512,"name":"ui-prj-disable-swipe","value":"1","description":"Disable prototype swipes","uuid":"df8b308a-03e6-45ae-95cd-f76c3f5be119","read_only":false},{"id":38551513,"name":"ui-prj-center-overflow","value":"0","description":"Center images and hide overflow on non-responsive images","uuid":"fc504353-06ae-4604-beaf-28dce93ffe49","read_only":false},{"id":38551507,"name":"ui-prj-remove-status","value":"0","description":"Removes status bar on project","uuid":"51c5ba07-7de3-43e1-8c02-720ced17cd91","read_only":false},{"id":38551515,"name":"ui-prj-disable-frame","value":"0","description":"New site features for user","uuid":"cbbd3d05-3b81-4768-82d2-f4ecc2c75446","read_only":false},{"id":38551500,"name":"prj-comments-enabled","value":"1","description":"Enable comments for this project","uuid":"aceef510-0808-4133-8550-dd1f05610465","read_only":false},{"id":38551519,"name":"ui-prj-frame-colour","value":"black","description":"Set phone colour","uuid":"c88caf60-3cd6-4953-823a-181bc7e18509","read_only":false},{"id":38551516,"name":"ui-prj-orientation","value":"portrait","description":"Set phone orientation","uuid":"1aa88286-26a5-4d01-aac8-ca08781f32b3","read_only":false},{"id":38551518,"name":"ui-prj-explore-background-hex","value":"#000000","description":"Set background colour for explore view","uuid":"cbd572de-438c-41d6-bc9a-360ff209ea9e","read_only":false}],"password":null,"team_fk":null,"owner_fk":1108259,"version":1,"hotspots_delta":"fe47c5abcf95c977556dca6a0f266220","team_name":null,"sequence_delta":"a9a213693a0f5dc2e107575b5fd8df5f","uuid":"db725ad5-82ee-4286-961e-a01e2b63503a","embed_url":"https://marvelapp.com/gcbeibg","team_icon":null,"is_pro":false,"published":false,"published_time":"2017-04-17 18:38:41","explore_url":"https://marvelapp.com/explore/1890341/resume-visualizer-app-concept","views":0,"is_archived":false,"likes":0,"bright_pixel_colour":null,"canvas_images":[],"es_canvas_id":"4578092250862881588","pusher_channel":"private-project-production_1890341","pusher_public_channel":"prototype-production_1890341","last_active":"2017-04-17 18:52:12.340469","owner_username":"Andrew Kamal"},
+        settings: {"CANVAS_EASEL_HOST": "https://easel.marvelapp.com", "DISALLOWED_FILENAME_CHARACTERS": "\\\"<>=", "PUSHER": {"PROTOTYPE_CHANNEL_PREFIX": "prototype-production_", "PROJECT_CHANNEL_PREFIX": "private-project-production_", "EXPLORE_CHANNEL_PREFIX": "explore-production_", "USER_CHANNEL_PREFIX": "private-user-production_"}, "BASE_URL": "https://marvelapp.com", "STRIPE_PUBLISHABLE": "pk_live_1afBzKMbfYd1vhu8lsneB1Zb", "ENVIRONMENT": "live", "APP_SENTRY_DSN": "https://873a8ca087a0492d8d22b808d6931306@sentry.io/97119", "BOX_COM_CLIENT_ID": "wo18m8uju79g09r64gf5r7xm59xf6zif", "GOOGLE_CLIENT_ID": "308573482263-ddask8oq90fg9n9o5t6ub8190v5nqvta.apps.googleusercontent.com", "CANVAS_TOKEN_PROVIDER_HOST": "https://marvelapp.com", "PROTOTYPE_SENTRY_DSN": "https://883389dfaa2349e891ef7b4f0a6cec51@sentry.io/96884", "MARVEL_CORS_PROXY": "https://marvelapp.com/proxy/", "SITE_SENTRY_DSN": "https://3fad520e195b4e168ceb79d16cbce216@app.getsentry.com/38273", "INTERCOM_APP_ID": "9afe6b55dbac3807f4bc7ebcdf1fc0470c2454f1", "REVISION": "6c0ab9d278"},
+        currentUser: {"id":1108259,"username":"Andrew Kamal","email":"amkamal@oakland.edu","state":1,"avatar_image":"","created_on":"2017-04-17T18:31:07.190056Z","show_tooltips":1,"is_syncing":-1,"last_active":"2017-04-17T18:32:02Z","properties":[{"id":8416292,"name":"show-onboarding","value":"1","description":"Should show user onboarding"},{"id":8416293,"name":"ui-onboarding-progress-dashboard","value":"5","description":"Onboarding progress for user - dashboard"},{"id":8416294,"name":"msg-new-app","value":"0","description":"Indicates user received welcome message for app"},{"id":8416295,"name":"usr-email-notifications","value":"1","description":"Email notification for user"},{"id":8416296,"name":"ui-notify-last_seen","value":"0","description":"Set's most recently seen notification"},{"id":8416297,"name":"ui-pro-notify","value":"0","description":"Notify user of pro launch"},{"id":8416299,"name":"show-pop-onboarding","value":"0","description":"Should show pop onboarding: 1=yes, 2=seen"},{"id":8416300,"name":"had-company-trial","value":"0","description":"User had company trial: 0=no, 1=yes"},{"id":8416291,"name":"ui-new-feature","value":"-1","description":"New site features for user"},{"id":8416298,"name":"ui-onboarding-progress-project","value":"-1","description":"Onboarding progress for user - project"}],"country":"","subscription":{"id":1111091,"subscription_state":1,"subscription_start_date":"2017-04-17T18:31:07Z","subscription_end_date":"3014-12-09T00:00:00Z","trial_start_date":null,"trial_end_date":null,"included_users":[],"is_subscribed":false,"gifted_subscription":null,"source":null,"plan":{"name":"free","slug":"free-2-projects","id":87,"available_features":["1 User","2 Projects"],"unavailable_features":[],"price_monthly":0,"price_yearly":0,"prices":{"monthly":0,"yearly":0},"trial_days":0,"currency":"usd","plan_page_position":0,"stripe_plan_id_monthly":"marvel-teams-yearly-plan","stripe_plan_id_yearly":"marvel-teams-yearly-plan","plan_allowances":[{"name":"project_comments","quantity":3,"is_unlimited":true,"resets":false,"usage_name":"Comment Enabled Project"},{"name":"lookback","quantity":0,"is_unlimited":true,"resets":false,"usage_name":"Lookback Enabled Project"},{"name":"create_projects","quantity":2,"is_unlimited":false,"resets":false,"usage_name":"Project"}],"is_enterprise":false,"team_members":null},"billing_cycle":null,"display_price":null,"allowance_reset_due":"2017-05-18","allowances":[{"name":"project_comments","quantity":3,"quantity_remaining":2,"quantity_used":1,"resets":false,"description":"Comment allowance for free users","display_name":"project comments","is_unlimited":true,"usage_name":"Comment Enabled Project","id":3826374},{"name":"lookback","quantity":0,"quantity_remaining":0,"quantity_used":0,"resets":false,"description":"lookback allowance","display_name":"lookback","is_unlimited":true,"usage_name":"Lookback Enabled Project","id":3826375},{"name":"create_projects","quantity":2,"quantity_remaining":1,"quantity_used":1,"resets":false,"description":"","display_name":"create projects","is_unlimited":false,"usage_name":"Project","id":3826376}],"is_active":true,"company":{},"user_fk_id":1108259,"owner":{"avatar":"https://secure.gravatar.com/avatar/3c9e67a6276a8161aaa7ee98b404d6dd?s=300&d=blank","email":"amkamal@oakland.edu","id":1108259,"username":"Andrew Kamal","colour":"#009EEB","state":1,"timezone":"EDT -0400","city":"Auburn Hills","country_code":"US"}},"payment_status":0,"total_time_processed":0,"total_number_of_syncs":0,"teams":[],"transaction_key":"9b6a757800fa1b549286a01c5adf6cff","dropbox_id":null,"dropbox_email":null,"stripe_id":null,"dropbox_connected":false,"has_password":true,"gravatar_data":{"url":"https://secure.gravatar.com/avatar/3c9e67a6276a8161aaa7ee98b404d6dd?s=300&d=blank","colour":"#009EEB"},"is_super":false,"is_enterprise_admin":false,"is_enterprise_owner":false,"is_enterprise_member":false,"is_app":false,"is_ipad_app":false,"is_android_app":false,"is_sketch":false,"bio":"","handle":null,"website":null,"uploaded_avatar":null,"has_published":false,"drive_connected":false,"box_com_connected":false,"drive_access_data":null,"box_com_access_data":null,"drive_email":null,"first_name":"Andrew","last_name":"Kamal","coupons":0,"integrations":[],"user_hash":"0f31ea2d5ab54f218e4e8aacd39cec034fb7516ec983d5ceaec28cfe3ad16df6","test_group_number":79,"city":"Auburn Hills","country_code":"US","timezone":"EDT -0400","had_company_trial":false,"occupation":2,"occupation_display":"Designer","intercom":{}},
+      
+      iOSApp: 0,
+      role: "Owner",
+
+      trackAsync: function(location, screenName) {
+        
+            trackerReady.then(function() {
+                ga('marvelUserGATracker.send', 'pageview', {
+                    page: location.pathname + screenName,
+                    title: screenName
+                });
+            });
+        
+      }
+    };
+})();
+</script>
+</head>
+<body>
+<div id="prototype"></div>
+<script type="text/javascript" src="/static/common-bundle.c5f13a528d3264e30263.js"></script>
+<script type="text/javascript" src="/static/prototype-bundle.256bd1b59f85ec3c5dd0.js"></script>
+</body>
+</html>
