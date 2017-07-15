@@ -1,0 +1,160 @@
+{
+    "widgets": [
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "properties": {
+                "title": "awseb-e-bwcmcmqmxy-stack-AWSEBCloudwatchAlarmHigh-1LGH4PTQPW38",
+                "annotations": {
+                    "alarms": [
+                        "arn:aws:cloudwatch:us-east-2:177391752787:alarm:awseb-e-bwcmcmqmxy-stack-AWSEBCloudwatchAlarmHigh-1LGH4PTQPW38"
+                    ]
+                },
+                "view": "timeSeries",
+                "stacked": false
+            }
+        },
+        {
+            "type": "metric",
+            "x": 6,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "properties": {
+                "view": "timeSeries",
+                "stacked": true,
+                "metrics": [
+                    [ "AWS/EBS", "VolumeReadBytes", "VolumeId", "vol-06803bb9c3c0b4030" ],
+                    [ ".", "VolumeWriteBytes", ".", "." ],
+                    [ ".", "VolumeIdleTime", ".", "." ],
+                    [ ".", "VolumeReadOps", ".", "." ],
+                    [ ".", "VolumeQueueLength", ".", "." ],
+                    [ ".", "BurstBalance", ".", "." ],
+                    [ ".", "VolumeWriteOps", ".", "." ],
+                    [ ".", "VolumeTotalReadTime", ".", "." ],
+                    [ ".", "VolumeTotalWriteTime", ".", "." ]
+                ],
+                "region": "us-east-2"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 12,
+            "width": 24,
+            "height": 6,
+            "properties": {
+                "view": "singleValue",
+                "metrics": [
+                    [ "AWS/ApiGateway", "Latency", "ApiName", "LambdaMicroservice", "Stage", "prod" ],
+                    [ ".", "Count", ".", ".", ".", "." ],
+                    [ ".", "4XXError", ".", ".", ".", "." ],
+                    [ ".", "5XXError", ".", ".", ".", "." ],
+                    [ "AWS/EBS", "VolumeQueueLength", "VolumeId", "vol-06803bb9c3c0b4030" ],
+                    [ ".", "VolumeWriteBytes", ".", "." ],
+                    [ ".", "VolumeWriteOps", ".", "." ],
+                    [ ".", "BurstBalance", ".", "." ],
+                    [ ".", "VolumeIdleTime", ".", "." ],
+                    [ ".", "VolumeReadBytes", ".", "." ],
+                    [ ".", "VolumeReadOps", ".", "." ],
+                    [ ".", "VolumeTotalWriteTime", ".", "." ],
+                    [ ".", "VolumeTotalReadTime", ".", "." ],
+                    [ "AWS/EC2", "StatusCheckFailed_Instance", "AutoScalingGroupName", "awseb-e-bwcmcmqmxy-stack-AWSEBAutoScalingGroup-DYNX3TVSLFGL" ],
+                    [ ".", "StatusCheckFailed", ".", "." ],
+                    [ ".", "CPUCreditUsage", ".", "." ],
+                    [ ".", "NetworkIn", ".", "." ],
+                    [ ".", "CPUUtilization", ".", "." ],
+                    [ ".", "NetworkPacketsIn", ".", "." ],
+                    [ ".", "DiskReadOps", ".", "." ],
+                    [ ".", "DiskWriteBytes", ".", "." ],
+                    [ ".", "NetworkPacketsOut", ".", "." ],
+                    [ ".", "DiskWriteOps", ".", "." ],
+                    [ ".", "NetworkOut", ".", "." ],
+                    [ ".", "CPUCreditBalance", ".", "." ],
+                    [ ".", "StatusCheckFailed_System", ".", "." ],
+                    [ ".", "DiskReadBytes", ".", "." ]
+                ],
+                "region": "us-east-2"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 12,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "properties": {
+                "view": "timeSeries",
+                "stacked": false,
+                "metrics": [
+                    [ "AWS/S3", "BucketSizeBytes", "StorageType", "StandardStorage", "BucketName", "cf-templates-aqiww4fyg2w6-us-east-2", { "period": 86400 } ],
+                    [ ".", "NumberOfObjects", ".", "AllStorageTypes", ".", ".", { "period": 86400 } ],
+                    [ ".", "BucketSizeBytes", ".", "StandardStorage", ".", "elasticbeanstalk-us-east-2-177391752787", { "period": 86400 } ],
+                    [ ".", "NumberOfObjects", ".", "AllStorageTypes", ".", ".", { "period": 86400 } ]
+                ],
+                "region": "us-east-2"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 6,
+            "width": 24,
+            "height": 6,
+            "properties": {
+                "view": "singleValue",
+                "metrics": [
+                    [ "AWS/EC2", "StatusCheckFailed_System", "InstanceId", "i-00aa0fef1a131df15" ],
+                    [ ".", "DiskWriteBytes", ".", "." ],
+                    [ ".", "CPUCreditUsage", ".", "." ],
+                    [ ".", "NetworkPacketsOut", ".", "." ],
+                    [ ".", "StatusCheckFailed_Instance", ".", "." ],
+                    [ ".", "DiskReadBytes", ".", "." ],
+                    [ ".", "DiskReadOps", ".", "." ],
+                    [ ".", "StatusCheckFailed", ".", "." ],
+                    [ ".", "DiskWriteOps", ".", "." ],
+                    [ ".", "CPUUtilization", ".", "." ],
+                    [ ".", "CPUCreditBalance", ".", "." ],
+                    [ ".", "NetworkIn", ".", "." ],
+                    [ ".", "NetworkOut", ".", "." ],
+                    [ ".", "NetworkPacketsIn", ".", "." ]
+                ],
+                "region": "us-east-2"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 18,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "properties": {
+                "view": "timeSeries",
+                "stacked": false,
+                "metrics": [
+                    [ "AWS/ApiGateway", "Latency", "ApiName", "LambdaMicroservice" ],
+                    [ ".", "Count", ".", "." ],
+                    [ ".", "4XXError", ".", "." ],
+                    [ ".", "5XXError", ".", "." ],
+                    [ "AWS/ELB", "Latency", "LoadBalancerName", "awseb-e-b-AWSEBLoa-Z10FP1UKOT9W", "AvailabilityZone", "us-east-2a" ],
+                    [ "...", "us-east-2b" ],
+                    [ ".", "BackendConnectionErrors", ".", ".", ".", "." ],
+                    [ ".", "RequestCount", ".", ".", ".", "us-east-2a", { "stat": "Sum" } ],
+                    [ ".", "HealthyHostCount", ".", ".", ".", "us-east-2b" ],
+                    [ ".", "RequestCount", ".", ".", ".", ".", { "stat": "Sum" } ],
+                    [ ".", "HealthyHostCount", ".", ".", ".", "us-east-2a" ],
+                    [ ".", "UnHealthyHostCount", ".", ".", ".", "us-east-2b" ],
+                    [ "...", "us-east-2a" ],
+                    [ ".", "HTTPCode_Backend_2XX", ".", ".", ".", "." ],
+                    [ ".", "HTTPCode_Backend_4XX", ".", ".", ".", "." ],
+                    [ ".", "HTTPCode_Backend_2XX", ".", ".", ".", "us-east-2b" ],
+                    [ ".", "HTTPCode_Backend_4XX", ".", ".", ".", "." ]
+                ],
+                "region": "us-east-2"
+            }
+        }
+    ]
+}
