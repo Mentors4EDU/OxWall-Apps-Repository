@@ -1,0 +1,16 @@
+//@version=3
+strategy("My Script")
+plot(close)
+x=20%10
+strategy.risk.max_intraday_loss(100, strategy.cash)
+strategy.entry("buy", true, when = open > close)
+plot(swma(close))
+// Pinescript, basic weighted moving averages
+pine_swma(x) =>
+    x[3] * 1 / 6 + x[2] * 2 / 6 + x[1] * 2 / 6 + x[0] * 1 / 6
+plot(pine_swma(close))
+plot(vwma(close, 10))
+// same on pine, but less efficient
+pine_vwma(x, y) =>
+    sma(x * volume, y) / sma(volume, y)
+plot(pine_vwma(close, 10))
